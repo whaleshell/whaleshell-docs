@@ -1,11 +1,11 @@
 name: Publish GitHub Wiki
 on:
+  workflow_dispatch:
   push:
     branches: [main]
     paths:
       - 'wiki/**'
       - '.github/workflows/publish-wiki.yml'
-  workflow_dispatch:
 
 permissions:
   contents: write
@@ -15,45 +15,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: Ensure wiki remote exists
+      - name: Check wiki remote
+        id: wiki
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_REPO: ${{ github.repository }}
         run: |
-          set -euo pipefail
-          WIKI_URL="https://x-access-token:${GH_TOKEN}@github.com/${GH_REPO}.wiki.git"
-
+          WIKI_URL="https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.wiki.git"
           if git ls-remote "$WIKI_URL" HEAD 2>/dev/null | grep -q .; then
-            echo "Wiki remote already initialized"
-            exit 0
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Wiki not initialized. Open https://github.com/${{ github.repository }}/wiki → Create the first page → Save, then re-run this workflow."
           fi
-
-          echo "Bootstrapping empty wiki via temporary git push…"
-          tmp=$(mktemp -d)
-          cd "$tmp"
-          git init -b master
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          printf '%s\n' '# whaleshell' '' 'Bootstrapping wiki…' > Home.md
-          git add Home.md
-          git commit -m "Bootstrap Home"
-          git remote add origin "$WIKI_URL"
-          # Try master then main; ignore failure so next step can report clearly
-          if git push -u origin HEAD:master; then
-            echo "Bootstrapped on master"
-            exit 0
+      - name: Prepare gollum sidebar
+        if: steps.wiki.outputs.ready == 'true'
+        run: |
+          if [ -f wiki/_Sidebar.gollum.md ]; then
+            cp wiki/_Sidebar.gollum.md wiki/_Sidebar.md
           fi
-          if git push -u origin HEAD:main; then
-            echo "Bootstrapped on main"
-            exit 0
-          fi
-          echo "::error::Could not create .wiki.git automatically."
-          echo "Open https://github.com/${GH_REPO}/wiki → Create the first page → Save,"
-          echo "then re-run this workflow."
-          exit 1
-
       - name: Publish wiki pages
+        if: steps.wiki.outputs.ready == 'true'
         uses: Andrew-Chen-Wang/github-wiki-action@v5
         with:
           path: wiki/

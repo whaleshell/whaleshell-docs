@@ -5,17 +5,16 @@ SPDX-License-Identifier: MIT
 
 # whaleshell documentation
 
-Canonical shared docs live in the **[GitHub Wiki](https://github.com/whaleshell/whaleshell-docs/wiki)** (EN / RU).
+Shared docs for all whaleshell modules (EN / RU).
 
-| | |
-|--|--|
-| Wiki home | https://github.com/whaleshell/whaleshell-docs/wiki |
-| English | [En-Home](https://github.com/whaleshell/whaleshell-docs/wiki/En-Home) |
-| Русский | [Ru-Home](https://github.com/whaleshell/whaleshell-docs/wiki/Ru-Home) |
-| Docker | [EN](https://github.com/whaleshell/whaleshell-docs/wiki/En-Providers-Docker-Overview) · [RU](https://github.com/whaleshell/whaleshell-docs/wiki/Ru-Providers-Docker-Overview) |
+| Surface | URL |
+|---------|-----|
+| **Docs site** | https://whaleshell.github.io/whaleshell-docs/ |
+| GitHub Wiki | https://github.com/whaleshell/whaleshell-docs/wiki |
+| Source pages | [`wiki/`](./wiki/) |
 
-Source markdown for the wiki is in [`wiki/`](./wiki/). Edits on the Wiki tab (or pushes to `*.wiki.git`) are the supported workflow; this repo mirrors pages for review/CI.
+Edit markdown under `wiki/`, push to `main` — Pages updates automatically. After the Wiki tab is initialized once (Create first page), the `Publish GitHub Wiki` workflow mirrors the same pages to `*.wiki.git`.
 
 ```bash
-git clone https://github.com/whaleshell/whaleshell-docs.wiki.git
+git clone https://github.com/whaleshell/whaleshell-docs.git
 ```
