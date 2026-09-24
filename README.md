@@ -5,16 +5,16 @@ SPDX-License-Identifier: MIT
 
 # whaleshell documentation
 
-Shared docs for all whaleshell modules (EN / RU).
+Canonical docs live in the **[whaleshell-cli Wiki](https://github.com/whaleshell/whaleshell-cli/wiki)** (EN / RU).
 
-| Surface | URL |
-|---------|-----|
-| **Docs site** | https://whaleshell.github.io/whaleshell-docs/ |
-| GitHub Wiki | https://github.com/whaleshell/whaleshell-docs/wiki |
-| Source pages | [`wiki/`](./wiki/) |
-
-Edit markdown under `wiki/`, push to `main` — Pages updates automatically. After the Wiki tab is initialized once (Create first page), the `Publish GitHub Wiki` workflow mirrors the same pages to `*.wiki.git`.
+| | |
+|--|--|
+| Wiki home | https://github.com/whaleshell/whaleshell-cli/wiki |
+| English | [En-Home](https://github.com/whaleshell/whaleshell-cli/wiki/En-Home) |
+| Русский | [Ru-Home](https://github.com/whaleshell/whaleshell-cli/wiki/Ru-Home) |
 
 ```bash
-git clone https://github.com/whaleshell/whaleshell-docs.git
+git clone https://github.com/whaleshell/whaleshell-cli.wiki.git
 ```
+
+This repository is retained as a mirror/archive of page sources under `wiki/` for review; prefer editing the Wiki tab or `*.wiki.git`.
