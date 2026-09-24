@@ -5,46 +5,17 @@ SPDX-License-Identifier: MIT
 
 # whaleshell documentation
 
-Canonical, shared documentation for the [whaleshell](https://github.com/whaleshell)
-multi-repo product. Not duplicated inside CLI, driver, or proxy repositories.
+Canonical shared docs live in the **[GitHub Wiki](https://github.com/whaleshell/whaleshell-docs/wiki)** (EN / RU).
 
-| Language | Home |
-|----------|------|
-| English | [en/Home.md](./en/Home.md) |
-| Русский | [ru/Home.md](./ru/Home.md) |
+| | |
+|--|--|
+| Wiki home | https://github.com/whaleshell/whaleshell-docs/wiki |
+| English | [En-Home](https://github.com/whaleshell/whaleshell-docs/wiki/En-Home) |
+| Русский | [Ru-Home](https://github.com/whaleshell/whaleshell-docs/wiki/Ru-Home) |
+| Docker | [EN](https://github.com/whaleshell/whaleshell-docs/wiki/En-Providers-Docker-Overview) · [RU](https://github.com/whaleshell/whaleshell-docs/wiki/Ru-Providers-Docker-Overview) |
 
-## Tree
+Source markdown for the wiki is in [`wiki/`](./wiki/). Edits on the Wiki tab (or pushes to `*.wiki.git`) are the supported workflow; this repo mirrors pages for review/CI.
 
-```text
-.
-├── en/                     English
-│   ├── Home.md
-│   ├── SUMMARY.md
-│   ├── get-started/
-│   ├── concepts/
-│   ├── providers/          compute backends (priority)
-│   │   ├── docker/         ★ default
-│   │   └── podman/         ★ Engine API parity
-│   ├── guides/
-│   └── reference/
-└── ru/                     Russian (mirror structure)
+```bash
+git clone https://github.com/whaleshell/whaleshell-docs.wiki.git
 ```
-
-## Compute providers (priority)
-
-| Provider | Status | Docs |
-|----------|--------|------|
-| **Docker** | Default | [en](./en/providers/docker/) · [ru](./ru/providers/docker/) |
-| **Podman** | Supported (Engine API) | [en](./en/providers/podman/) · [ru](./ru/providers/podman/) |
-
-## Local workspace
-
-In the org hub checkout this repository as `whaleshell-docs/` next to the other
-`whaleshell-*` modules. Product code repos do not vendor these pages.
-
-## Style
-
-- NVIDIA OpenShell–aligned: short sections, imperative voice, tables for facts.
-- Dual language: keep `en/` and `ru/` paths in lockstep.
-- Credential providers (`--provider github`, …) are documented under Guides —
-  separate from compute providers (Docker / Podman).

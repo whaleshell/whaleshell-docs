@@ -1,0 +1,25 @@
+<!--
+SPDX-FileCopyrightText: Copyright (c) 2026 whaleshell
+SPDX-License-Identifier: MIT
+-->
+
+# Troubleshooting (Docker)
+
+| Symptom | Action |
+|---------|--------|
+| `docker not available` | Start Engine/Desktop; check `docker info` and `DOCKER_HOST` |
+| Desktop VM RSS climbs past 10+ GiB | Use Docker VMM; set `--memory`; confirm log rotation; prune stopped containers |
+| Image pull / missing tag | `task runtime:image:cli` or pull GHCR catalog — [Images](En-Reference-Images) |
+| Proxy cannot reach gateway | Create with gateway selected; sidecar uses `host.whaleshell.internal` |
+| `CONNECT 403` / policy deny | Narrow allow via `whaleshell rule approve` / policy set — [POLICY_LOCAL](../../../docs/POLICY_LOCAL.md) |
+| Guest shows raw secrets | Use `--provider`, not `--env KEY=secret` |
+| Cursor `invalid API key` | Do not inject `CURSOR_API_KEY`; run `agent login` in guest |
+| Landlock noise on Desktop | Expected when ABI is 0; rely on container boundary |
+| Stale sizing after upgrade | Recreate sandbox — LogConfig/PidsLimit apply at create time |
+
+```bash
+whaleshell doctor
+docker ps -a --filter label=whaleshell.sandbox=1
+docker stats --no-stream
+whaleshell logs <name> --source proxy
+```
