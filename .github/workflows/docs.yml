@@ -24,6 +24,19 @@ jobs:
           cache: pip
       - run: pip install -r requirements.txt
       - run: mkdocs build --strict
+      - name: Check site output
+        run: |
+          set -eux
+          for f in index.html ru/index.html \
+                   providers/docker/resources/index.html ru/providers/docker/resources/index.html \
+                   assets/stylesheets/extra.css search/search_index.json; do
+            test -s "site/$f"
+          done
+          grep -q 'ws-hero' site/index.html
+          grep -q 'extra.css' site/ru/index.html
+          grep -q 'hreflang="ru"' site/index.html
+          grep -q 'Быстрый старт' site/ru/index.html
+          grep -q 'class="mermaid"' site/concepts/architecture/index.html
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site
