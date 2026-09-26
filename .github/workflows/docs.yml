@@ -34,6 +34,7 @@ jobs:
                    providers/kubernetes/index.html ru/providers/microvm/index.html \
                    assets/stylesheets/extra.css assets/images/under-construction.svg \
                    assets/images/hero.svg assets/images/logo.svg assets/images/favicon.svg \
+                   assets/javascripts/hero.js \
                    search/search_index.json; do
             test -s "site/$f"
           done
@@ -53,6 +54,8 @@ jobs:
           grep -q 'logo.svg' site/index.html
           grep -q 'favicon.svg' site/ru/index.html
           grep -q 'extra.css' site/ru/index.html
+          grep -q 'hero.js' site/ru/index.html
+          grep -q 'ws-hero__wave' site/ru/index.html
           grep -q 'hreflang="ru"' site/index.html
           grep -q 'lang="ru"' site/ru/index.html
           grep -q 'Start the gateway' site/get-started/index.html

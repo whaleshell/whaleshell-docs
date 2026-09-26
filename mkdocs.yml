@@ -99,6 +99,9 @@ plugins:
 extra_css:
   - assets/stylesheets/extra.css
 
+extra_javascript:
+  - assets/javascripts/hero.js
+
 extra:
   status:
     soon: Coming soon
