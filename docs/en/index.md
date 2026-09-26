@@ -1,25 +1,26 @@
 ---
+template: home.html
 hide:
   - navigation
   - toc
+hero:
+  title: Sandboxes for coding agents
+  text: >-
+    Run Cursor, Claude, Codex or any agent you bring in a container that sees
+    only your project and reaches only the hosts you allow. Secrets never
+    enter the sandbox.
+  primary:
+    label: Get started
+    link: get-started/
+  secondary:
+    label: How it works
+    link: "#how-it-works"
 ---
 
 <!--
 SPDX-FileCopyrightText: Copyright (c) 2026 whaleshell
 SPDX-License-Identifier: MIT
 -->
-
-<div class="ws-hero" markdown>
-
-# whaleshell
-
-<p class="ws-hero__tagline">Policy-bound sandboxes for coding agents.<br>
-Cursor, Claude, Codex — or anything you bring — on Docker or Podman.</p>
-
-[Get started](get-started/index.md){ .md-button .md-button--primary }
-[Providers](providers/index.md){ .md-button }
-
-</div>
 
 ## Why
 
@@ -75,7 +76,7 @@ can reach **only the hosts you allow**. Secrets stay outside the container.
 
 </div>
 
-## How it works
+## How it works { #how-it-works }
 
 ```mermaid
 sequenceDiagram
@@ -111,33 +112,3 @@ sequenceDiagram
    live in about a second, without recreating the sandbox.
 
 More detail: [Architecture](concepts/architecture.md) · [Security](concepts/security.md).
-
-## Explore
-
-<div class="grid cards" markdown>
-
--   :material-rocket-launch:{ .lg .middle } __Get started__
-
-    ---
-
-    Install, start the engine and gateway, create a sandbox — step by step.
-
-    [:octicons-arrow-right-24: Get started](get-started/index.md)
-
--   :material-server-network:{ .lg .middle } __Providers__
-
-    ---
-
-    Docker and Podman today; Kubernetes and MicroVM coming soon.
-
-    [:octicons-arrow-right-24: Providers](providers/index.md)
-
--   :material-shield-lock:{ .lg .middle } __Policy__
-
-    ---
-
-    Allowlists, L7 rules, proposals and approve.
-
-    [:octicons-arrow-right-24: Policy guide](guides/policy.md)
-
-</div>

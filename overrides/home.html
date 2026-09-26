@@ -1,0 +1,30 @@
+{#- SPDX-FileCopyrightText: Copyright (c) 2026 whaleshell -#}
+{#- SPDX-License-Identifier: MIT -#}
+{% extends "main.html" %}
+
+{% block tabs %}
+  {{ super() }}
+  {% set hero = page.meta.hero %}
+  <section class="ws-hero">
+    <div class="md-grid md-typeset">
+      <div class="ws-hero__inner">
+        <div class="ws-hero__image">
+          <img src="{{ 'assets/images/hero.svg' | url }}" alt="" width="640" height="460" draggable="false">
+        </div>
+        <div class="ws-hero__content">
+          <h1>{{ hero.title }}</h1>
+          <p>{{ hero.text }}</p>
+          <a href="{{ hero.primary.link }}" class="md-button md-button--primary">{{ hero.primary.label }}</a>
+          <a href="{{ hero.secondary.link }}" class="md-button">{{ hero.secondary.label }}</a>
+        </div>
+      </div>
+    </div>
+    <svg class="ws-hero__wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 64c160 40 320 56 520 30S900 0 1100 8s260 44 340 60v52H0z"/>
+    </svg>
+  </section>
+{% endblock %}
+
+{% block content %}
+  {{ page.content }}
+{% endblock %}

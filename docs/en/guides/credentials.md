@@ -6,7 +6,7 @@ SPDX-License-Identifier: MIT
 # Credential providers
 
 Credential providers bind named secrets and egress endpoints into a sandbox.
-They are not compute backends ([Providers overview](../providers/index.md)).
+They are not compute backends ([Docker](../providers/docker/index.md), [Podman](../providers/podman/index.md)).
 
 ## Store once
 

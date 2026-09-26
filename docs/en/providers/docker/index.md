@@ -5,19 +5,19 @@ SPDX-License-Identifier: MIT
 
 # Docker provider
 
-Docker is the default compute provider. whaleshell talks to the local Engine
-API (`DOCKER_HOST` / Desktop socket), creates an internal network per sandbox,
+A **compute provider** is the engine that runs the sandbox and its egress
+proxy. It is picked with `WHALESHELL_DRIVER` and shown by `whaleshell status`.
+
+| Provider | `WHALESHELL_DRIVER` | Status |
+|----------|---------------------|--------|
+| Docker | `docker` | <span class="ws-badge ws-badge--ok">default</span> |
+| Podman | `podman` | <span class="ws-badge ws-badge--ok">supported</span> |
+| [Kubernetes](../kubernetes.md) | `kubernetes` | <span class="ws-badge ws-badge--soon">coming soon</span> |
+| [MicroVM](../microvm.md) | `vm` | <span class="ws-badge ws-badge--soon">coming soon</span> |
+
+Docker is the default. whaleshell talks to the local Engine API
+(`DOCKER_HOST` / Desktop socket), creates an internal network per sandbox,
 starts an egress proxy sidecar, then starts the sandbox container.
-
-## Pages
-
-| Page | Topic |
-|------|-------|
-| [Prerequisites](./prerequisites.md) | Engine, Desktop VMM, images |
-| [Create a sandbox](./create-sandbox.md) | `sandbox create` / connect / delete |
-| [Resources and limits](./resources.md) | CPU, memory, PIDs, soft defaults |
-| [Logging](./logging.md) | Container log rotation, gateway rings |
-| [Troubleshooting](./troubleshooting.md) | Common failures |
 
 ## Layout (one sandbox)
 
@@ -39,3 +39,8 @@ whaleshell status
 ```
 
 Expect `driver: docker` in status output.
+
+!!! tip "Not the same as credential providers"
+    `--provider github`, `--provider cursor` and friends attach secrets and
+    egress rules to a sandbox. They work with any compute provider — see
+    [Credential providers](../../guides/credentials.md).

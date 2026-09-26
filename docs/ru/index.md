@@ -1,25 +1,26 @@
 ---
+template: home.html
 hide:
   - navigation
   - toc
+hero:
+  title: Песочницы для coding-агентов
+  text: >-
+    Запускайте Cursor, Claude, Codex или любого своего агента в контейнере,
+    который видит только ваш проект и ходит только на разрешённые хосты.
+    Секреты в песочницу не попадают.
+  primary:
+    label: Быстрый старт
+    link: get-started/
+  secondary:
+    label: Как это работает
+    link: "#how-it-works"
 ---
 
 <!--
 SPDX-FileCopyrightText: Copyright (c) 2026 whaleshell
 SPDX-License-Identifier: MIT
 -->
-
-<div class="ws-hero" markdown>
-
-# whaleshell
-
-<p class="ws-hero__tagline">Песочницы с политикой для coding-агентов.<br>
-Cursor, Claude, Codex — или любой свой агент — на Docker или Podman.</p>
-
-[Начать](get-started/index.md){ .md-button .md-button--primary }
-[Провайдеры](providers/index.md){ .md-button }
-
-</div>
 
 ## Зачем
 
@@ -75,7 +76,7 @@ whaleshell запускает агента в контейнере, которы
 
 </div>
 
-## Как это работает
+## Как это работает { #how-it-works }
 
 ```mermaid
 sequenceDiagram
@@ -110,33 +111,3 @@ sequenceDiagram
    начинает действовать примерно через секунду, песочницу пересоздавать не надо.
 
 Подробнее: [Архитектура](concepts/architecture.md) · [Безопасность](concepts/security.md).
-
-## Разделы
-
-<div class="grid cards" markdown>
-
--   :material-rocket-launch:{ .lg .middle } __Быстрый старт__
-
-    ---
-
-    Установка, движок, gateway и первая песочница — по шагам.
-
-    [:octicons-arrow-right-24: Начать](get-started/index.md)
-
--   :material-server-network:{ .lg .middle } __Провайдеры__
-
-    ---
-
-    Сейчас Docker и Podman; Kubernetes и MicroVM — скоро.
-
-    [:octicons-arrow-right-24: Провайдеры](providers/index.md)
-
--   :material-shield-lock:{ .lg .middle } __Политика__
-
-    ---
-
-    Allowlist, L7-правила, предложения и одобрение.
-
-    [:octicons-arrow-right-24: Политика](guides/policy.md)
-
-</div>

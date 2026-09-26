@@ -6,7 +6,7 @@ SPDX-License-Identifier: MIT
 # Credential-провайдеры
 
 Credential-провайдеры привязывают именованные секреты и egress endpoints к
-sandbox. Это не compute backend ([Обзор провайдеров](../providers/index.md)).
+sandbox. Это не compute backend ([Docker](../providers/docker/index.md), [Podman](../providers/podman/index.md)).
 
 ## Store один раз
 

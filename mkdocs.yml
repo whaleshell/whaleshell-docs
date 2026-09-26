@@ -11,8 +11,10 @@ copyright: Copyright &copy; 2026 whaleshell &middot; MIT License
 
 theme:
   name: material
+  custom_dir: overrides
+  logo: assets/images/logo.svg
+  favicon: assets/images/favicon.svg
   icon:
-    logo: material/shield-lock
     repo: fontawesome/brands/github
   palette:
     - media: "(prefers-color-scheme)"
@@ -28,7 +30,7 @@ theme:
         name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: black
+      primary: indigo
       accent: indigo
       toggle:
         icon: material/brightness-4
@@ -45,7 +47,6 @@ theme:
     - content.tabs.link
     - content.tooltips
     - navigation.footer
-    - navigation.indexes
     - navigation.path
     - navigation.sections
     - navigation.tabs
@@ -72,6 +73,10 @@ plugins:
           nav_translations:
             Home: Главная
             Get started: Быстрый старт
+            Installation: Установка
+            Start the gateway: Запуск gateway
+            Your first sandbox: Первая песочница
+            Overview: Обзор
             Concepts: Концепции
             Architecture: Архитектура
             Security: Безопасность
@@ -139,22 +144,23 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - Get started: get-started/index.md
+  - Get started:
+      - Installation: get-started/index.md
+      - Start the gateway: get-started/gateway.md
+      - Your first sandbox: get-started/first-sandbox.md
   - Concepts:
-      - concepts/index.md
       - Architecture: concepts/architecture.md
       - Security: concepts/security.md
   - Providers:
-      - providers/index.md
       - Docker:
-          - providers/docker/index.md
+          - Overview: providers/docker/index.md
           - Prerequisites: providers/docker/prerequisites.md
           - Create a sandbox: providers/docker/create-sandbox.md
           - Resources and limits: providers/docker/resources.md
           - Logging: providers/docker/logging.md
           - Troubleshooting: providers/docker/troubleshooting.md
       - Podman:
-          - providers/podman/index.md
+          - Overview: providers/podman/index.md
           - Prerequisites: providers/podman/prerequisites.md
           - Create a sandbox: providers/podman/create-sandbox.md
           - Limitations: providers/podman/limitations.md
@@ -162,14 +168,12 @@ nav:
       - Kubernetes: providers/kubernetes.md
       - MicroVM: providers/microvm.md
   - Guides:
-      - guides/index.md
       - Credential providers: guides/credentials.md
       - Gateway: guides/gateway.md
       - Policy: guides/policy.md
       - Cursor agent: guides/cursor.md
       - Recreate a sandbox: guides/recreate-sandbox.md
   - Reference:
-      - reference/index.md
       - CLI: reference/cli.md
       - Images: reference/images.md
       - Environment: reference/environment.md

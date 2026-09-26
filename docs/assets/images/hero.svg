@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 460" width="640" height="460" role="img" aria-label="whaleshell: a whale guarding a sandboxed terminal">
+  <!-- SPDX-FileCopyrightText: Copyright (c) 2026 whaleshell -->
+  <!-- SPDX-License-Identifier: MIT -->
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#0b0d2e" flood-opacity=".35"/>
+    </filter>
+    <linearGradient id="shield" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#dfe3fb"/>
+    </linearGradient>
+    <linearGradient id="whale" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#b3e5fc"/>
+      <stop offset="1" stop-color="#64b5f6"/>
+    </linearGradient>
+  </defs>
+
+  <circle cx="380" cy="230" r="215" fill="#fff" opacity=".06"/>
+  <circle cx="380" cy="230" r="150" fill="#fff" opacity=".05"/>
+
+  <!-- terminal -->
+  <g transform="translate(150 90)" filter="url(#shadow)">
+    <rect width="440" height="280" rx="14" fill="#1e1f22"/>
+    <path d="M14 0h412a14 14 0 0 1 14 14v20H0V14A14 14 0 0 1 14 0z" fill="#2b2d31"/>
+    <circle cx="22" cy="17" r="6" fill="#ff5f57"/>
+    <circle cx="42" cy="17" r="6" fill="#febc2e"/>
+    <circle cx="62" cy="17" r="6" fill="#28c840"/>
+    <text x="220" y="21" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#9da1a8">zsh &#8212; whaleshell</text>
+    <g font-family="SFMono-Regular, Menlo, Consolas, 'Roboto Mono', monospace" font-size="13" xml:space="preserve" style="white-space: pre">
+      <text x="20" y="66"><tspan fill="#98c379">$</tspan><tspan fill="#e6e6e6"> whaleshell sandbox create --name demo</tspan></text>
+      <text x="20" y="90"><tspan fill="#28c840">&#10003;</tspan><tspan fill="#7f848e"> network </tspan><tspan fill="#e6e6e6">whaleshell-net-demo</tspan></text>
+      <text x="20" y="110"><tspan fill="#28c840">&#10003;</tspan><tspan fill="#7f848e"> proxy   </tspan><tspan fill="#e6e6e6">policy: default-deny</tspan></text>
+      <text x="20" y="130"><tspan fill="#28c840">&#10003;</tspan><tspan fill="#7f848e"> sandbox </tspan><tspan fill="#e6e6e6">/workspace mounted</tspan></text>
+      <text x="20" y="164"><tspan fill="#98c379">$</tspan><tspan fill="#e6e6e6"> curl -sI https://api.github.com</tspan></text>
+      <text x="20" y="184" fill="#98c379">  200 OK &#183; allowed by policy</text>
+      <text x="20" y="214"><tspan fill="#98c379">$</tspan><tspan fill="#e6e6e6"> curl -sI https://evil.example</tspan></text>
+      <text x="20" y="234" fill="#e06c75">  403 &#183; host not in policy</text>
+      <text x="20" y="262" fill="#98c379">$</text>
+    </g>
+    <rect x="37" y="251" width="8" height="14" fill="#e6e6e6" opacity=".85"/>
+  </g>
+
+  <!-- whale -->
+  <g transform="translate(432 20)">
+    <g fill="#fff" opacity=".7">
+      <circle cx="44" cy="-2" r="4"/>
+      <circle cx="34" cy="6" r="3"/>
+      <circle cx="56" cy="6" r="3"/>
+    </g>
+    <path d="M0 48C0 26 28 12 66 12c36 0 60 16 70 30l20-20c5-4 12 0 10 6l-8 26 16 18c3 5-2 10-8 7l-24-12c-12 22-42 34-76 34C28 101 0 80 0 48z" fill="url(#whale)"/>
+    <path d="M6 62c16 20 44 28 70 27 26-1 48-10 60-24-16 9-38 13-62 13-28 0-50-6-68-16z" fill="#fff" opacity=".85"/>
+    <circle cx="30" cy="44" r="5" fill="#1a237e"/>
+    <circle cx="31.5" cy="42.5" r="1.6" fill="#fff"/>
+  </g>
+  <g fill="#fff" opacity=".35">
+    <circle cx="610" cy="150" r="6"/>
+    <circle cx="624" cy="128" r="4"/>
+    <circle cx="604" cy="112" r="3"/>
+  </g>
+
+  <!-- shield -->
+  <g transform="translate(70 262)" filter="url(#shadow)">
+    <path d="M60 0l60 20v46c0 40-25 64-60 80C25 130 0 106 0 66V20z" fill="url(#shield)"/>
+    <path d="M47 64V52c0-9 6-15 13-15s13 6 13 15v12" fill="none" stroke="#3949ab" stroke-width="7" stroke-linecap="round"/>
+    <rect x="36" y="62" width="48" height="38" rx="6" fill="#3949ab"/>
+    <circle cx="60" cy="78" r="5" fill="#fff"/>
+    <rect x="58" y="80" width="4" height="10" rx="2" fill="#fff"/>
+  </g>
+</svg>

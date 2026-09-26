@@ -9,15 +9,6 @@ Podman is a first-class compute provider. whaleshell discovers a Podman API
 socket and reuses the Docker Engine client path (`driver.OpenEngine("podman")`).
 Sandbox labels, networks, proxy sidecar, and exec flows match Docker.
 
-## Pages
-
-| Page | Topic |
-|------|-------|
-| [Prerequisites](./prerequisites.md) | Socket, machine, rootless |
-| [Create a sandbox](./create-sandbox.md) | Switch driver and run create |
-| [Limitations](./limitations.md) | Rootless networking, MVP gaps |
-| [Troubleshooting](./troubleshooting.md) | Socket and netavark issues |
-
 ## Activate
 
 ```bash

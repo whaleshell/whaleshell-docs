@@ -9,15 +9,6 @@ Podman — полноценный провайдер вычислений. whale
 и идёт по пути Docker Engine client (`driver.OpenEngine("podman")`). Labels,
 сети, proxy sidecar и exec совпадают с Docker.
 
-## Страницы
-
-| Страница | Тема |
-|----------|------|
-| [Требования](./prerequisites.md) | Сокет, machine, rootless |
-| [Создание sandbox](./create-sandbox.md) | Переключение драйвера и create |
-| [Ограничения](./limitations.md) | Rootless-сеть, пробелы MVP |
-| [Устранение неполадок](./troubleshooting.md) | Сокет и netavark |
-
 ## Активация
 
 ```bash

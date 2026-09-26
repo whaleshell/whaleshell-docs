@@ -4,35 +4,94 @@
 /* ---------- Landing hero ---------- */
 
 .ws-hero {
-  text-align: center;
-  padding: 2.5rem 1rem 1rem;
+  position: relative;
+  padding-top: 1rem;
+  color: var(--md-primary-bg-color);
+  background: linear-gradient(to bottom, var(--md-primary-fg-color), #6a3fb5);
 }
 
-.ws-hero h1 {
-  margin-bottom: 0.4rem;
-  font-size: 3rem;
+.ws-hero__inner {
+  margin: 0 0.8rem;
+}
+
+.ws-hero__image {
+  max-width: 28rem;
+  margin: 0 auto;
+}
+
+.ws-hero__image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.ws-hero__content {
+  position: relative;
+  z-index: 1;
+  padding-bottom: 5rem;
+}
+
+.md-typeset .ws-hero h1 {
+  margin: 0 0 1rem;
   font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--md-primary-fg-color);
+  color: currentColor;
 }
 
-[data-md-color-scheme="slate"] .ws-hero h1 {
-  color: var(--md-accent-fg-color);
+.ws-hero__content p {
+  font-size: 0.9rem;
+  opacity: 0.9;
 }
 
-.ws-hero h1 .headerlink {
-  display: none;
+.md-typeset .ws-hero .md-button {
+  margin: 0.5rem 0.5rem 0 0;
+  color: var(--md-primary-bg-color);
 }
 
-.ws-hero__tagline {
-  margin: 0 auto 1.6rem;
-  max-width: 36rem;
-  font-size: 1.1rem;
-  opacity: 0.8;
+.md-typeset .ws-hero .md-button:is(:hover, :focus) {
+  color: var(--md-accent-bg-color);
+  background-color: var(--md-accent-fg-color);
+  border-color: var(--md-accent-fg-color);
 }
 
-.ws-hero .md-button {
-  margin: 0.25rem;
+.md-typeset .ws-hero .md-button--primary {
+  color: #4c3a9e;
+  background-color: var(--md-primary-bg-color);
+  border-color: var(--md-primary-bg-color);
+}
+
+.ws-hero__wave {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 4rem;
+  fill: var(--md-default-bg-color);
+}
+
+@media screen and (max-width: 29.99em) {
+  .md-typeset .ws-hero h1 {
+    font-size: 1.4rem;
+  }
+}
+
+@media screen and (min-width: 60em) {
+  .ws-hero__inner {
+    display: flex;
+    align-items: center;
+  }
+
+  .ws-hero__content {
+    max-width: 20rem;
+    padding-bottom: 7rem;
+  }
+
+  .ws-hero__image {
+    order: 1;
+    width: 32rem;
+    max-width: none;
+    margin: 0 0 0 auto;
+    padding-bottom: 3rem;
+  }
 }
 
 /* ---------- macOS terminal for shell snippets ---------- */
@@ -86,42 +145,6 @@
 .md-typeset :is(.language-bash, .language-sh, .language-shell, .language-console).highlight pre > code {
   padding: 0.9em 1.2em;
   border-radius: 0;
-}
-
-/* ---------- Numbered step tree ---------- */
-
-.ws-steps {
-  counter-reset: ws-step;
-  margin-left: 0.9rem;
-  padding-left: 1.6rem;
-  border-left: 2px solid var(--md-default-fg-color--lightest);
-}
-
-.ws-steps > h2 {
-  position: relative;
-  counter-increment: ws-step;
-}
-
-.ws-steps > h2::before {
-  content: counter(ws-step);
-  position: absolute;
-  top: -0.05rem;
-  left: calc(-1.6rem - 1px - 0.9rem);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.8rem;
-  height: 1.8rem;
-  border-radius: 50%;
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: var(--md-primary-bg-color);
-  background: var(--md-primary-fg-color);
-  box-shadow: 0 0 0 4px var(--md-default-bg-color);
-}
-
-[data-md-color-scheme="slate"] .ws-steps > h2::before {
-  background: var(--md-accent-fg-color);
 }
 
 /* ---------- Status badges ---------- */

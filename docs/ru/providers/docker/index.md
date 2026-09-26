@@ -5,19 +5,20 @@ SPDX-License-Identifier: MIT
 
 # Провайдер Docker
 
-Docker — провайдер вычислений по умолчанию. whaleshell обращается к локальному
-Engine API (`DOCKER_HOST` / сокет Desktop), создаёт внутреннюю сеть на sandbox,
-поднимает egress-sidecar, затем sandbox-контейнер.
+**Провайдер вычислений** — движок, на котором работают песочница и её
+egress-прокси. Выбирается через `WHALESHELL_DRIVER`, виден в
+`whaleshell status`.
 
-## Страницы
+| Провайдер | `WHALESHELL_DRIVER` | Статус |
+|-----------|---------------------|--------|
+| Docker | `docker` | <span class="ws-badge ws-badge--ok">по умолчанию</span> |
+| Podman | `podman` | <span class="ws-badge ws-badge--ok">поддерживается</span> |
+| [Kubernetes](../kubernetes.md) | `kubernetes` | <span class="ws-badge ws-badge--soon">скоро</span> |
+| [MicroVM](../microvm.md) | `vm` | <span class="ws-badge ws-badge--soon">скоро</span> |
 
-| Страница | Тема |
-|----------|------|
-| [Требования](./prerequisites.md) | Engine, Desktop VMM, образы |
-| [Создание sandbox](./create-sandbox.md) | `sandbox create` / connect / delete |
-| [Ресурсы и лимиты](./resources.md) | CPU, память, PIDs, soft defaults |
-| [Логирование](./logging.md) | Ротация логов контейнеров, кольца gateway |
-| [Устранение неполадок](./troubleshooting.md) | Типичные сбои |
+Docker — провайдер по умолчанию. whaleshell обращается к локальному Engine API
+(`DOCKER_HOST` / сокет Desktop), создаёт внутреннюю сеть на sandbox, поднимает
+egress-sidecar, затем sandbox-контейнер.
 
 ## Схема (один sandbox)
 
@@ -39,3 +40,8 @@ whaleshell status
 ```
 
 В статусе ожидайте `driver: docker`.
+
+!!! tip "Не путать с credential-провайдерами"
+    `--provider github`, `--provider cursor` и другие подключают к песочнице
+    секреты и egress-правила. Они работают с любым провайдером вычислений —
+    см. [Credential-провайдеры](../../guides/credentials.md).

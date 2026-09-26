@@ -14,15 +14,17 @@ Shared documentation for all whaleshell modules, built with
 
 ```text
 mkdocs.yml            theme, navigation, RU nav titles
+overrides/home.html   landing page hero (text comes from index.md front matter)
 docs/
 ├── en/               English (default, served at /)
 ├── ru/               Russian (same tree, served at /ru/)
-└── assets/           shared CSS
+└── assets/           shared CSS and images
 ```
 
 Keep `docs/en/` and `docs/ru/` in lockstep: same file names, same paths.
 New pages also need an entry in `nav` in `mkdocs.yml` (and a RU title in
-`nav_translations` if the label is new).
+`nav_translations` if the label is new). The sidebar tree is the table of
+contents — don't add pages that only list links to other pages.
 
 ## Local preview
 
