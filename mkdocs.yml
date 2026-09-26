@@ -72,8 +72,6 @@ plugins:
           nav_translations:
             Home: Главная
             Get started: Быстрый старт
-            Install: Установка
-            First sandbox: Первый sandbox
             Concepts: Концепции
             Architecture: Архитектура
             Security: Безопасность
@@ -97,6 +95,8 @@ extra_css:
   - assets/stylesheets/extra.css
 
 extra:
+  status:
+    soon: Coming soon
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/whaleshell
@@ -139,10 +139,7 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - Get started:
-      - get-started/index.md
-      - Install: get-started/install.md
-      - First sandbox: get-started/first-sandbox.md
+  - Get started: get-started/index.md
   - Concepts:
       - concepts/index.md
       - Architecture: concepts/architecture.md
@@ -162,6 +159,8 @@ nav:
           - Create a sandbox: providers/podman/create-sandbox.md
           - Limitations: providers/podman/limitations.md
           - Troubleshooting: providers/podman/troubleshooting.md
+      - Kubernetes: providers/kubernetes.md
+      - MicroVM: providers/microvm.md
   - Guides:
       - guides/index.md
       - Credential providers: guides/credentials.md

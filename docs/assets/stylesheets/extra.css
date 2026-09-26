@@ -1,6 +1,8 @@
 /* SPDX-FileCopyrightText: Copyright (c) 2026 whaleshell */
 /* SPDX-License-Identifier: MIT */
 
+/* ---------- Landing hero ---------- */
+
 .ws-hero {
   text-align: center;
   padding: 2.5rem 1rem 1rem;
@@ -31,4 +33,149 @@
 
 .ws-hero .md-button {
   margin: 0.25rem;
+}
+
+/* ---------- macOS terminal for shell snippets ---------- */
+
+.md-typeset :is(.language-bash, .language-sh, .language-shell, .language-console).highlight {
+  --md-code-bg-color: #1e1f22;
+  --md-code-fg-color: #e6e6e6;
+  --md-code-hl-color: rgba(255, 255, 255, 0.08);
+  --md-code-hl-comment-color: #7f848e;
+  --md-code-hl-string-color: #98c379;
+  --md-code-hl-keyword-color: #c678dd;
+  --md-code-hl-function-color: #61afef;
+  --md-code-hl-name-color: #e6e6e6;
+  --md-code-hl-variable-color: #e5c07b;
+  --md-code-hl-number-color: #d19a66;
+  --md-code-hl-constant-color: #d19a66;
+  --md-code-hl-operator-color: #56b6c2;
+  --md-code-hl-punctuation-color: #abb2bf;
+  --md-code-hl-special-color: #e06c75;
+  --md-code-hl-generic-color: #abb2bf;
+  --md-default-fg-color--lighter: rgba(255, 255, 255, 0.45);
+  --md-default-fg-color--lightest: rgba(255, 255, 255, 0.3);
+
+  margin: 1em 0;
+  overflow: hidden;
+  border-radius: 10px;
+  background: var(--md-code-bg-color);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(0, 0, 0, 0.35);
+}
+
+.md-typeset :is(.language-bash, .language-sh, .language-shell, .language-console).highlight::before {
+  content: "zsh";
+  display: block;
+  height: 1.7rem;
+  padding: 0 4rem;
+  font: 500 0.62rem/1.7rem var(--md-text-font-family, sans-serif);
+  text-align: center;
+  color: #9da1a8;
+  background-color: #2b2d31;
+  background-image:
+    radial-gradient(circle at 0.9rem 50%, #ff5f57 0.3rem, transparent 0.32rem),
+    radial-gradient(circle at 1.7rem 50%, #febc2e 0.3rem, transparent 0.32rem),
+    radial-gradient(circle at 2.5rem 50%, #28c840 0.3rem, transparent 0.32rem);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+.md-typeset :is(.language-bash, .language-sh, .language-shell, .language-console).highlight pre {
+  margin: 0;
+}
+
+.md-typeset :is(.language-bash, .language-sh, .language-shell, .language-console).highlight pre > code {
+  padding: 0.9em 1.2em;
+  border-radius: 0;
+}
+
+/* ---------- Numbered step tree ---------- */
+
+.ws-steps {
+  counter-reset: ws-step;
+  margin-left: 0.9rem;
+  padding-left: 1.6rem;
+  border-left: 2px solid var(--md-default-fg-color--lightest);
+}
+
+.ws-steps > h2 {
+  position: relative;
+  counter-increment: ws-step;
+}
+
+.ws-steps > h2::before {
+  content: counter(ws-step);
+  position: absolute;
+  top: -0.05rem;
+  left: calc(-1.6rem - 1px - 0.9rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--md-primary-bg-color);
+  background: var(--md-primary-fg-color);
+  box-shadow: 0 0 0 4px var(--md-default-bg-color);
+}
+
+[data-md-color-scheme="slate"] .ws-steps > h2::before {
+  background: var(--md-accent-fg-color);
+}
+
+/* ---------- Status badges ---------- */
+
+.ws-badge {
+  display: inline-block;
+  padding: 0.05rem 0.45rem;
+  border-radius: 1rem;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.ws-badge--ok {
+  color: #1b8f36;
+  background: rgba(40, 200, 64, 0.15);
+}
+
+.ws-badge--soon {
+  color: #b25e00;
+  background: rgba(255, 152, 0, 0.18);
+}
+
+[data-md-color-scheme="slate"] .ws-badge--ok {
+  color: #5fd47a;
+}
+
+[data-md-color-scheme="slate"] .ws-badge--soon {
+  color: #ffb74d;
+}
+
+/* ---------- Coming-soon pages ---------- */
+
+.ws-soon {
+  margin: 1.5rem 0 2rem;
+  text-align: center;
+}
+
+.ws-soon img {
+  max-width: 100%;
+}
+
+.ws-soon p:last-child {
+  font-size: 1rem;
+}
+
+:root {
+  --md-status--soon: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.5 3h3l1.2 4.5h-5.4zM9.1 9h5.8l1.1 4H8zm-1.5 5.5h8.8L17.6 19H6.4zM4 20h16v2H4z"/></svg>');
+}
+
+.md-status--soon::after {
+  background-color: #ff9800;
+  -webkit-mask-image: var(--md-status--soon);
+  mask-image: var(--md-status--soon);
 }

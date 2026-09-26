@@ -27,15 +27,22 @@ jobs:
       - name: Check site output
         run: |
           set -eux
-          for f in index.html ru/index.html \
+          for f in index.html ru/index.html get-started/index.html ru/get-started/index.html \
                    providers/docker/resources/index.html ru/providers/docker/resources/index.html \
-                   assets/stylesheets/extra.css search/search_index.json; do
+                   providers/kubernetes/index.html ru/providers/microvm/index.html \
+                   assets/stylesheets/extra.css assets/images/under-construction.svg \
+                   search/search_index.json; do
             test -s "site/$f"
           done
           grep -q 'ws-hero' site/index.html
+          grep -q 'class="mermaid"' site/index.html
           grep -q 'extra.css' site/ru/index.html
           grep -q 'hreflang="ru"' site/index.html
-          grep -q 'Быстрый старт' site/ru/index.html
+          grep -q 'lang="ru"' site/ru/index.html
+          grep -q 'ws-steps' site/get-started/index.html
+          grep -q 'tabbed-set' site/ru/get-started/index.html
+          grep -q 'md-status--soon' site/providers/index.html
+          grep -q 'under-construction.svg' site/ru/providers/microvm/index.html
           grep -q 'class="mermaid"' site/concepts/architecture/index.html
       - uses: actions/upload-pages-artifact@v3
         with:
