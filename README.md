@@ -8,7 +8,7 @@ SPDX-License-Identifier: MIT
 Shared documentation for all whaleshell modules, built with
 [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) (EN / RU).
 
-**Site:** https://whaleshell.github.io/whaleshell-docs/
+**Site:** https://whaleshell.github.io/
 
 ## Layout
 
