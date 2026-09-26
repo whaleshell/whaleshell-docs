@@ -1,0 +1,176 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 whaleshell
+# SPDX-License-Identifier: MIT
+
+site_name: whaleshell
+site_description: Policy-bound sandboxes for coding agents on Docker and Podman
+site_url: https://whaleshell.github.io/whaleshell-docs/
+repo_url: https://github.com/whaleshell/whaleshell-docs
+repo_name: whaleshell/whaleshell-docs
+edit_uri: edit/main/docs/
+copyright: Copyright &copy; 2026 whaleshell &middot; MIT License
+
+theme:
+  name: material
+  icon:
+    logo: material/shield-lock
+    repo: fontawesome/brands/github
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    - announce.dismiss
+    - content.action.edit
+    - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    - content.tabs.link
+    - content.tooltips
+    - navigation.footer
+    - navigation.indexes
+    - navigation.path
+    - navigation.sections
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+
+plugins:
+  - search
+  - i18n:
+      docs_structure: folder
+      languages:
+        - locale: en
+          default: true
+          name: English
+          build: true
+        - locale: ru
+          name: Русский
+          build: true
+          nav_translations:
+            Home: Главная
+            Get started: Быстрый старт
+            Install: Установка
+            First sandbox: Первый sandbox
+            Concepts: Концепции
+            Architecture: Архитектура
+            Security: Безопасность
+            Providers: Провайдеры
+            Prerequisites: Требования
+            Create a sandbox: Создание sandbox
+            Resources and limits: Ресурсы и лимиты
+            Logging: Логирование
+            Troubleshooting: Устранение неполадок
+            Limitations: Ограничения
+            Guides: Руководства
+            Credential providers: Credential-провайдеры
+            Policy: Политика
+            Cursor agent: Cursor Agent
+            Recreate a sandbox: Пересоздание sandbox
+            Reference: Справка
+            Images: Образы
+            Environment: Окружение
+
+extra_css:
+  - assets/stylesheets/extra.css
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/whaleshell
+      name: whaleshell on GitHub
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.betterem
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+nav:
+  - Home: index.md
+  - Get started:
+      - get-started/index.md
+      - Install: get-started/install.md
+      - First sandbox: get-started/first-sandbox.md
+  - Concepts:
+      - concepts/index.md
+      - Architecture: concepts/architecture.md
+      - Security: concepts/security.md
+  - Providers:
+      - providers/index.md
+      - Docker:
+          - providers/docker/index.md
+          - Prerequisites: providers/docker/prerequisites.md
+          - Create a sandbox: providers/docker/create-sandbox.md
+          - Resources and limits: providers/docker/resources.md
+          - Logging: providers/docker/logging.md
+          - Troubleshooting: providers/docker/troubleshooting.md
+      - Podman:
+          - providers/podman/index.md
+          - Prerequisites: providers/podman/prerequisites.md
+          - Create a sandbox: providers/podman/create-sandbox.md
+          - Limitations: providers/podman/limitations.md
+          - Troubleshooting: providers/podman/troubleshooting.md
+  - Guides:
+      - guides/index.md
+      - Credential providers: guides/credentials.md
+      - Gateway: guides/gateway.md
+      - Policy: guides/policy.md
+      - Cursor agent: guides/cursor.md
+      - Recreate a sandbox: guides/recreate-sandbox.md
+  - Reference:
+      - reference/index.md
+      - CLI: reference/cli.md
+      - Images: reference/images.md
+      - Environment: reference/environment.md

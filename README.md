@@ -5,16 +5,31 @@ SPDX-License-Identifier: MIT
 
 # whaleshell documentation
 
-Canonical docs live in the **[whaleshell-cli Wiki](https://github.com/whaleshell/whaleshell-cli/wiki)** (EN / RU).
+Shared documentation for all whaleshell modules, built with
+[Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) (EN / RU).
 
-| | |
-|--|--|
-| Wiki home | https://github.com/whaleshell/whaleshell-cli/wiki |
-| English | [En-Home](https://github.com/whaleshell/whaleshell-cli/wiki/En-Home) |
-| Русский | [Ru-Home](https://github.com/whaleshell/whaleshell-cli/wiki/Ru-Home) |
+**Site:** https://whaleshell.github.io/whaleshell-docs/
 
-```bash
-git clone https://github.com/whaleshell/whaleshell-cli.wiki.git
+## Layout
+
+```text
+mkdocs.yml            theme, navigation, RU nav titles
+docs/
+├── en/               English (default, served at /)
+├── ru/               Russian (same tree, served at /ru/)
+└── assets/           shared CSS
 ```
 
-This repository is retained as a mirror/archive of page sources under `wiki/` for review; prefer editing the Wiki tab or `*.wiki.git`.
+Keep `docs/en/` and `docs/ru/` in lockstep: same file names, same paths.
+New pages also need an entry in `nav` in `mkdocs.yml` (and a RU title in
+`nav_translations` if the label is new).
+
+## Local preview
+
+```bash
+python3 -m venv .venv && . .venv/bin/activate
+pip install -r requirements.txt
+mkdocs serve
+```
+
+Pushes to `main` build with `mkdocs build --strict` and deploy to GitHub Pages.
